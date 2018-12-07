@@ -13,7 +13,7 @@
 //主页
 Route::get('/', 'StaticPagesController@home');
 //帮助页
-Route::get('/help', 'StaticPagesController@help');
+Route::get('/help', 'StaticPagesController@help')->name('help');
 //关于页
 Route::get('/about', 'StaticPagesController@about');
 
@@ -22,3 +22,8 @@ Route::get('signup', 'UsersController@create')->name('signup');
 
 //用户
 Route::resource('users', 'UsersController');
+
+//用户登录
+Route::get('login', 'SessionsController@create')->name('login');
+Route::post('login', 'SessionsController@store')->name('login');
+Route::delete('logout', 'SessionsController@destroy')->name('logout');
