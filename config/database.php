@@ -4,34 +4,7 @@ $db_config = get_db_config();
 
 return [
 
-    /*
-    |--------------------------------------------------------------------------
-    | Default Database Connection Name
-    |--------------------------------------------------------------------------
-    |
-    | Here you may specify which of the database connections below you wish
-    | to use as your default connection for all database work. Of course
-    | you may use many connections at once using the Database library.
-    |
-    */
-
-    'default' => env('DB_CONNECTION', 'mysql'),
-
-    /*
-    |--------------------------------------------------------------------------
-    | Database Connections
-    |--------------------------------------------------------------------------
-    |
-    | Here are each of the database connections setup for your application.
-    | Of course, examples of configuring each database platform that is
-    | supported by Laravel is shown below to make development simple.
-    |
-    |
-    | All database work in Laravel is done through the PHP PDO facilities
-    | so make sure you have the driver for your particular database of
-    | choice installed on your machine before you begin development.
-    |
-    */
+    'default' => $db_config['connection'],
 
     'connections' => [
 
@@ -58,11 +31,11 @@ return [
 
         'pgsql' => [
             'driver'   => 'pgsql',
-            'host'     => $db_config['host'],
-            'port'     => env('DB_PORT', '5432'),
-            'database' => $db_config['database'],
-            'username' => $db_config['username'],
-            'password' => $db_config['password'],
+            'host'     => 'ec2-54-83-8-246.compute-1.amazonaws.com',
+            'port'     => '5432',
+            'database' => 'dfsn7vdabg76a6',
+            'username' => 'wgifpympdvdlqb',
+            'password' => 'cdec64767006477e25c16723838fbff0ccd5c0aba8787ae80e9fc5794483ca87',
             'charset'  => 'utf8',
             'prefix'   => '',
             'schema'   => 'public',
