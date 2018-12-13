@@ -12,6 +12,7 @@
 */
 //主页
 Route::get('/', 'StaticPagesController@home');
+Route::get('/home', 'StaticPagesController@home')->name('home');
 //帮助页
 Route::get('/help', 'StaticPagesController@help')->name('help');
 //关于页
@@ -29,3 +30,8 @@ Route::post('login', 'SessionsController@store')->name('login');
 Route::delete('logout', 'SessionsController@destroy')->name('logout');
 //账户邮件激活
 Route::get('signup/confirm/{token}', 'UsersController@confirmEmail')->name('confirm_email');
+//密码重置/忘记密码
+Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
